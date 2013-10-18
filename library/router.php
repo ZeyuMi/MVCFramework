@@ -27,9 +27,9 @@ function callMethod(){
 	if((int)method_exists($controller, $action)){
 		call_user_func(array($controllerObject, $action));
 	}
-	return $template;
+	$template->render();
 }
 
 setReporting();
-$template = callMethod();
+callMethod();
 
