@@ -23,11 +23,13 @@ function callMethod(){
 
 	$controllerObject = new $controller($controllerName, $action);
 	
+	$template = new Template($controllerName, $action);
 	if((int)method_exists($controller, $action)){
 		call_user_func(array($controllerObject, $action));
 	}
+	return $template;
 }
 
 setReporting();
-callMethod();
+$template = callMethod();
 
